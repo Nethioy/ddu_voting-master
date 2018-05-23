@@ -32,6 +32,8 @@ Route::get('/home',function(){
 Route::resource('post', 'PostController');
 Route::POST('addpost', 'PostController@addpost');
 
+Route::post('post/store','PostController@store');
+
 Route::get('/add/new/student', 'AddstudentController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@update');

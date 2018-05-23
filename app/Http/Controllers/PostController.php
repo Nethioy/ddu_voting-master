@@ -19,7 +19,7 @@ class PostController extends Controller
 		  // return view('admin.post',compact('post'));
 		
    }
-  public function addpost(Request $req){
+  /* public function addpost(Request $req){
   	$rules=array(
   		'title' =>'required',
   		'body'=>'required',
@@ -35,5 +35,17 @@ class PostController extends Controller
   		$post->save();
   		return response()->json($post);
   	}
-  }
+  }*/
+
+  public function store(Request $request)
+    {
+		if ($request ->ajax())
+		{
+				// $post = Post::create($request->all());
+				// response($posts); 
+				return response($request->all());
+		}
+	}
+
+
 }

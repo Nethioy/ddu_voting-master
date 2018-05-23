@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="{{ asset('css/adm/theme.css') }}" rel="stylesheet">
         <!-- for admin page-->
@@ -194,78 +195,22 @@
     </div>
   </div>
     </footer>
-</body>
-  <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
 
-  <script src="{{ asset('js/popper.min.js') }}" ></script>
-  <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
-<script src="{{asset('ck/ckeditor.js')}}"></script>
-<!--
-<script>
-   var konten = document.getElementById("body");
-     CKEDITOR.replace(konten,{
-     language:'en-gb'
-   });
-   CKEDITOR.config.allowedContent = true;
-</script>  -->
-<!-- ajax for post-->
-<script type="text/javascript">
-  $(document).on('click','.create-modal',function(){
-    $('#create').modal('show');
-    $('.form-horizontal').show();
-    $('.modal-title').text('Add Post');
-
-  });
+    <script src="{{ asset('js/popper.min.js') }}" ></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+  <script src="{{asset('ck/ckeditor.js')}}"></script>
+  <!--
+  <script>
+     var konten = document.getElementById("body");
+       CKEDITOR.replace(konten,{
+       language:'en-gb'
+     });
+     CKEDITOR.config.allowedContent = true;
+  </script>  -->
   
-</script>
-<script type="text/javascript">
-  // function to add (save)
-  $('#add').click(function(){
-    $ajax({
-      type='POST',
-      url='addpost',
-      data={
-        '_token':$('input[name=_token]').val(),
-        'title':$('input[name=title]').val(),
-        'body':$('input[name=body]').val(),
-      },
-      success:function (data){
-        if ((data.errors)) {
-          $('.error').removeClass('hidden');
-          $('.error').text(data.errors.title);
-          $('.error').text(data.errors.body);
-        }
-        else{
-          $('.error').remove();
-          $('#table').append("<tr class='post" + data.id +"'>"+
-            "<td>" + data.id + "</td>"+
-            "<td>" + data.title + "</td>"+
-            "<td>" + data.body + "</td>"+
-            "<td>" + data.created_at +"</td>"+
+  <!-- ajax for post-->
 
-            "<td><a class='show-modal btn btn-info btn-sm' data-id ='" + data.id + "' data-title = '" + data.title + "' data-body = '"+ data.body+"'>"+
-            "<i class='fa fa-eye'></i></a>"+
-            "<a class='edit-modal btn btn-warning btn-sm' data-id='"+data.id+"' data-title='"+data.title+"' data-body='"+data.body+"'>"+
-            "<i class='fa fa-pencil'></i></a>"+
-            "<a class='delete-modal btn btn-danger btn-sm' data-id='"+data.id+"' data-title='"+data.title+"' data-body='"+data.body+"'>"+
-            "<i class='fa fa-trash'></i></a>"+
-            "</td>"+
-            "</tr>");
-        }
-      },
-    });
-    $('#title').val('');
-    $('#body').val('');
-  });
-//show function
-   $(document).on('click', '.show-modal', function() {
-       $('#show').modal('show');
-       $('.modal-title').text('show-post');
-   });
-
-
-
-</script>
-@yield('script')
+</body>
 </html>
                                                                                                                                                                                                                                                     
