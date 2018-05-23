@@ -15,9 +15,9 @@
 				<th> Body</th>
 				<th >created at</th>
 				<th class="text-center" width="150px">
-					<!-- <a href="#" id="" class="create-modal btn btn-success btn-sm">  -->
+					<a href="#" id="" class="create-modal btn btn-success btn-sm">
 					<!--<i class="glyphicon glyphicon-plus"></i>	  -->
-						<button class="btn btn-info"  data-toggle="modal" data-target="#myModal">+ add post </button>
+						
 						<i class="fa fa-plus"></i>
 					</a>
 				</th>
@@ -25,7 +25,7 @@
 			{{csrf_field()}}
 			<?php $no=1; ?>
 			
-			@foreach ($posts as $key => $value)
+			@foreach ($post as $key => $value)
 				<tr class="post{{$value->id}}">
 					<td>{{$no++}}</td>
 					<td>{{$value->title}}</td>
@@ -47,9 +47,9 @@
 		</table>
 	</div>
 </div>
- <!-- new modal test -->
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
+
+  <!-- The Modal -->
+  <div id="create" class="modal fade"  role="dialog">
 		<div class="modal-dialog">
 		  <div class="modal-content">
 		  
@@ -60,61 +60,41 @@
 			</div>
 			
 			<!-- Modal body -->
-		<form action="{{ URL::to('post/store') }}" method="POST" id="frm_insert">
-				<div class="modal-body">
-			    <div class="col-6-md">
-					<div class="form-group">
-						<label> Title </label>
-						<input type="text" name="title" class="form-control">
-					</div>
-			    </div>
-			    <div class="col-6-md">
-						<div class="form-group">
-							<label> Description </label>
-							<input type="text" name="body" class="form-control">
-						</div>
-					</div>
-				</div>
-				
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<input type="submit" class="btn btn-success pull-left" value="Save">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-			</form>
+			<div class="modal-body">
+					<form class="form-horizontal" role="form">
+							<div class="form-group row add">
+								<label class="control-label col-md-2" for="title">Title:</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control" id="title" name="title" placeholder="your title here" required>
+									<p class="error text-center alert alert-danger hidden" hidden></p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2" for="body">Body:</label>
+								<div class="col-md-10">
+									<!-- <textarea class="form-control" placeholder="your body here" required="" id="body" name="body"></textarea> -->
+	   
+									<!-- <input type="text area" > -->
+									<input type="text" class="form-control" id="body" name="body" placeholder="your body here" required>
+									<p class="error text-center alert alert-danger hidden" hidden=""></p>
+								</div>
+							</div>
+						</form>
+			</div>
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">				
+ 					<!--  <a class="btn btn-warning" href="#" type="submit" id="add">Save Post >></a>		-->	
+					 <button class="btn btn-success" type="submit" id="add">
+							<span class="glyphicon glyphicon-plus"></span>Save Post
+						   </button>
+						   
+						 <button class="btn btn-warning" type="button" data-dismiss="modal">
+						 <span class="glyphicon glyphicon-remove"></span>Close
+						</button>
+			</div>
+			
 		  </div>
-
-
- <!-- new modal test -->
-
-@endsection
-
-
-@section('script')
-	<script type="text/javascript"
-	$.ajaxSetup({
-	headers: {
-		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-	}
-
-	});
-	$(#frm-insert).on('submit',function(e){
-		alert('test')
-		e.preventDefault();
-		var data = $(this).serialize();
-		var url = $(this).attr('action');
-		var post = $(this).attr('method');
-		$.ajax({
-			type : post,
-			url : url,
-			data : data,
-			dataType : 'json',
-			success:function(data)
-			  {
-                  console.log(data)
-			  }
-		})
-	})
-	</script>
+		</div>
+	  </div>
 @endsection

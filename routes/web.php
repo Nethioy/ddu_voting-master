@@ -25,14 +25,14 @@ Route::get('/home',function(){
 	{
 		$users['users']=\App\User::all();
 		return view('admin.home',$users);
+		
 	}
 })->name('home');
 
 });
 Route::resource('post', 'PostController');
-Route::POST('addpost', 'PostController@addpost');
+Route::POST('addPost', 'PostController@addPost');
 
-Route::post('post/store','PostController@store');
 
 Route::get('/add/new/student', 'AddstudentController@index');
 Route::post('/home/profile/{id}', 'UserProfileController@index');

@@ -9,12 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="{{ asset('css/adm/theme.css') }}" rel="stylesheet">
-        <!-- for admin page-->
-        <link href="{{ asset('foradminpage/bootstrap.min.css') }}" rel="stylesheet">
-        <script src="{{ asset('foradminpage/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('foradminpage/jquery.min.js') }}"></script>
-        <script src="{{ asset('foradminpage/popper.min.js') }}"></script>
-        <!-- // -->
         <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('fonts/fontawesome-webfont.woff2') }}" type="text/css">
          <link rel="stylesheet" href="{{ asset('fonts/glyphicons-halflings-regular.woff2') }}" type="text/css">
@@ -139,6 +133,9 @@
     </div>
   </div>
 
+  
+
+
             
         </main>
     </div>
@@ -195,22 +192,63 @@
     </div>
   </div>
     </footer>
-    <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"  crossorigin="anonymous"></script>
 
-    <script src="{{ asset('js/popper.min.js') }}" ></script>
+      <script src="{{ asset('js/jquery.min.js') }}" ></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('js/popper.min.js') }}" ></script>
   <script src="{{asset('ck/ckeditor.js')}}"></script>
-  <!--
-  <script>
-     var konten = document.getElementById("body");
-       CKEDITOR.replace(konten,{
-       language:'en-gb'
-     });
-     CKEDITOR.config.allowedContent = true;
-  </script>  -->
   
-  <!-- ajax for post-->
+       <!--ajax form to add -->
+      <script type="text/javascript">
+          $(document).on('click','.create-modal', function(){
+            $('#create').modal('show');
+            $('.form-horizontal').show();
+            $('.modal-title').text('Add Post');
+          });
+      
+      //function add(save)
+      $('#add').click(function(){
+            $.ajax({
+                type : 'POST',
+                url  : 'addPost',
+                data : {
+                  '_token' : $('input[name=_token]').val(),
+                  'title' : $('input[name=title]').val(),
+                  'body' : $('input[name=body]').val(),
+                  },
+                  success: function (data) {
+                    if ((data.errors)) {
+                      $('.error').removeClass('hidden');
+                      $('.error').text(data.errors.title);
+                      $('.error').text(data.errors.body);
+                    }else
+                    {
+                      $('.error').remove();
+                      $('#table').append("<tr class='post" + data.id +"'>"+
+                        "<td>" + data.id + "</td>"+
+                        "<td>" + data.title + "</td>"+
+                        "<td>" + data.body + "</td>"+
+                        "<td>" + data.created_at +"</td>"+
 
+                        "<td><a class='show-modal btn btn-info btn-sm' data-id ='" + data.id + "' data-title = '" + data.title + "' data-body = '"+ data.body +"'>"+
+                        "<i class='fa fa-eye'></i></a>"+
+
+                        "<a class='edit-modal btn btn-warning btn-sm' data-id='"+data.id +"' data-title='"+data.title +"' data-body='"+data.body +"'>"+
+                        "<i class='fa fa-pencil'></i></a>"+
+                        
+                        "<a class='delete-modal btn btn-danger btn-sm' data-id='"+data.id +"' data-title='"+data.title +"' data-body='"+data.body +"'>"+
+                        "<i class='fa fa-trash'></i></a>"+
+                        "</td>"+
+                        "</tr>");                   
+                    }                
+                  },
+            });
+            $('#title').val('');
+            $('#body').val('');
+      });
+      </script>
+    
 </body>
+
 </html>
                                                                                                                                                                                                                                                     
