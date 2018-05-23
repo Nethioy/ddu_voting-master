@@ -19,9 +19,9 @@ class PostController extends Controller
    public function addPost(Request $req){
 	  if($req->ajax())
 	     {
-			// $post = post::create($req->all());
+			 $post = post::create($req->all());
 			// response($posts);
-			return response($req->all());
+			//return response($req->all());
 		 }
 		 
    }

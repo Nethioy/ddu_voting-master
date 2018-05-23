@@ -58,10 +58,10 @@
 			  <h4 class="modal-title">Modal Heading</h4>
 			  <button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			
+			<form action="" method="POST" id="frm-insert" class="form-horizontal" role="form">
 			<!-- Modal body -->
 			<div class="modal-body">
-					<form class="form-horizontal" role="form">
+					
 							<div class="form-group row add">
 								<label class="control-label col-md-2" for="title">Title:</label>
 								<div class="col-md-10">
@@ -97,4 +97,6 @@
 		  </div>
 		</div>
 	  </div>
+
+
 @endsection
