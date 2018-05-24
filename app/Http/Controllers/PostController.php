@@ -13,8 +13,8 @@ class PostController extends Controller
    public function index(){
 	
    		$post = Post::all();
-		 // return view('admin.post',['posts' => $post]);
-        return view('admin.post',compact('post'));
+		 return view('admin.post',['posts' => $post]);
+       // return view('admin.post',compact('post'));
 }
    public function addPost(Request $req){
 	  if($req->ajax())

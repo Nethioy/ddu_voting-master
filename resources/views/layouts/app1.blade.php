@@ -197,7 +197,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
     <script src="{{ asset('js/popper.min.js') }}" ></script>
   <script src="{{asset('ck/ckeditor.js')}}"></script>
-  
+
        <!--ajax form to add -->
       <script type="text/javascript">
           $(document).on('click','.create-modal', function(){

@@ -24,8 +24,8 @@
 			</tr>
 			{{csrf_field()}}
 			<?php $no=1; ?>
-			
-			@foreach ($post as $key => $value)
+			<!--     // $post as $key => $value if return view('admin.post',compact('post'));-->
+			@foreach ($posts as $key => $value)
 				<tr class="post{{$value->id}}">
 					<td>{{$no++}}</td>
 					<td>{{$value->title}}</td>
@@ -50,7 +50,7 @@
 
   <!-- The Modal -->
   <div id="create" class="modal fade"  role="dialog">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-lg">
 		  <div class="modal-content">
 		  
 			<!-- Modal Header -->
@@ -69,13 +69,13 @@
 									<p class="error text-center alert alert-danger hidden" hidden></p>
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group row add">
 								<label class="control-label col-md-2" for="body">Body:</label>
 								<div class="col-md-10">
-									<!-- <textarea class="form-control" placeholder="your body here" required="" id="body" name="body"></textarea> -->
-	   
-									<!-- <input type="text area" > -->
-									<input type="text" class="form-control" id="body" name="body" placeholder="your body here" required>
+						<!--			 <textarea  class="form-control" id="body" name="body" placeholder="your body here" required></textarea>
+								-->
+								
+									<input type="text" class="form-control" id="body" name="body" placeholder="your body here" required>  
 									<p class="error text-center alert alert-danger hidden" hidden=""></p>
 								</div>
 							</div>
