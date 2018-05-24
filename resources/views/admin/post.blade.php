@@ -10,15 +10,15 @@
 	<div class="table table-responsive">
 		<table class="table table-bordered" id="table">
 			<tr>
-				<th width="150px">No</th>
+				<th width="15px">No</th>
 				<th > Title</th>
 				<th> Body</th>
 				<th >created at</th>
 				<th class="text-center" width="150px">
-					<a href="#" id="" class="create-modal btn btn-success btn-sm">
+					<a href="#" id="" class="create-modal btn btn-success btn-md">
 					<!--<i class="glyphicon glyphicon-plus"></i>	  -->
 						
-						<i class="fa fa-plus"></i>
+						<i class="fa fa-plus">Add Post</i>
 					</a>
 				</th>
 			</tr>
@@ -58,7 +58,7 @@
 			  <h4 class="modal-title">Modal Heading</h4>
 			  <button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<form action="" method="POST" id="frm-insert" class="form-horizontal" role="form">
+	
 			<!-- Modal body -->
 			<div class="modal-body">
 					
@@ -79,14 +79,17 @@
 									<p class="error text-center alert alert-danger hidden" hidden=""></p>
 								</div>
 							</div>
-						</form>
+					
 			</div>
 			
 			<!-- Modal footer -->
 			<div class="modal-footer">				
  					<!--  <a class="btn btn-warning" href="#" type="submit" id="add">Save Post >></a>		-->	
 					 <button class="btn btn-success" type="submit" id="add">
-							<span class="glyphicon glyphicon-plus"></span>Save Post
+							<span class="glyphicon glyphicon-plus"></span>
+								Save Post 
+							
+						
 						   </button>
 						   
 						 <button class="btn btn-warning" type="button" data-dismiss="modal">
