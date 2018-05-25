@@ -30,8 +30,13 @@ Route::get('/home',function(){
 })->name('home');
 
 });
-Route::resource('post', 'PostController');
+Route::resource('posts', 'PostController');
 Route::POST('addPost', 'PostController@addPost');
+
+Route::get('post', function(){
+	$post = DB::table('posts')->get();
+	return view('admin.post', ['posts' => $post]);
+});
 
 
 Route::get('/add/new/student', 'AddstudentController@index');

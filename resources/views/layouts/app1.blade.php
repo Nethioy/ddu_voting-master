@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="{{ asset('css/adm/theme.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
@@ -245,6 +244,12 @@
             });
             $('#title').val('');
             $('#body').val('');
+      });
+
+      //show function 
+      $(document).on('click', '.show-modal', function(){
+        $('#show').modal('show');
+        $('.modal-title').text('show-post');
       });
       </script>
     
