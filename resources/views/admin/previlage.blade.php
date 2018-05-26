@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.master')
 @section('content')
 
 <div class="container">
@@ -20,7 +20,7 @@
                     			<th>Batch</th>
                     			<th>Action</th>
                     		</tr>
-{{csrf_field()}}
+             {{csrf_field()}}
 			<?php $no=1; ?>
 			
 			@foreach ($users as $key=>$value)
@@ -32,13 +32,13 @@
 					<td>{{$value->department}}</td>
 					<td>{{$value->batch}}</td>
 					<td>
-						<a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+						<a href="#" class="btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-eye"></i>
 						</a>
-						<a href="#" class="show-modal btn btn-warning btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+						<a href="#" class="btn btn-warning btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a href="#" class="show-modal btn btn-danger btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+						<a href="#" class="btn btn-danger btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-trash "></i>
 						</a>
 					</td>

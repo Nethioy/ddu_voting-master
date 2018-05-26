@@ -30,12 +30,22 @@ Route::get('/home',function(){
 })->name('home');
 
 });
+//for posts
 Route::resource('posts', 'PostController');
 Route::POST('addPost', 'PostController@addPost');
 
 Route::get('post', function(){
 	$post = DB::table('posts')->get();
 	return view('admin.post', ['posts' => $post]);
+});
+
+//for users
+Route::resource('users', 'AddstudentController');
+Route::POST('addusers', 'AddstudentController@addusers');
+
+Route::get('user', function(){
+	$post = DB::table('users')->get();
+	return view('admin.user', ['users' => $user]);
 });
 
 

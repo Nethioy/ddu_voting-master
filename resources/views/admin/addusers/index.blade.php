@@ -20,18 +20,28 @@
                     			<th>Batch</th>
                     			<th>Action</th>
                     		</tr>
-{{csrf_field()}}
+             {{csrf_field()}}
 			<?php $no=1; ?>
 			
 			@foreach ($users as $key=>$value)
-				<tr class="post{{$value->id}}">
+				<tr class="user{{$value->id}}">
 					<td>{{$no++}}</td>
 					<td>{{$value->student_id}}</td>
 					<th>{{$value->fname}}</th>
 					<td>{{$value->lname}}</td>
 					<td>{{$value->department}}</td>
 					<td>{{$value->batch}}</td>
-					
+					<td>
+						<a href="{{route('users.show', $value->id)}}" class="btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+							<i class="fa fa-eye"></i>
+						</a>
+						<a href="{{route('users.edit', $value->id)}}" class="btn btn-warning btn-sm" data-id="{{$value->id}}" data-idno="{{$value->idno}}" data-fname="{{$value->body}}" data-lname="{{$value->lname}}" data-department="{{$value->department}}" data-batch="{{$value->batch}}">
+							<i class="fa fa-pencil"></i>
+						</a>
+						<a href="#" class="btn btn-danger btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
+							<i class="fa fa-trash "></i>
+						</a>
+					</td>
 					
 				</tr>
 			@endforeach
@@ -45,14 +55,5 @@
 </div>
 
 @endsection
-@section('script')
 
-<script type="text/javascript">
-	$('#read-data').on('click',function(){
-		$.get("{{URL::to('add/new/student/read-data')}}",function(data){
-			$('#student_info').empty()html(data);
-		})
-	})
-</script>
 
-@endsection

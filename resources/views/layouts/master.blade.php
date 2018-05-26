@@ -92,13 +92,13 @@
     </div>
   </nav>
 
-        <main class="py-4">
+        <main class="py-4  ">
            <div class="p-1 w-100 h-100 mx-1">
     <div class="container-fluid w-100 h-100">
       <div class="row">
         <div class="col-md-12 w-100 h-100 py-3">
           <div class="row">
-            <div class="col-3 bg-success py-2">
+            <div class="col-3 bg-info py-2">
               <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
                   <a href="{{route('home')}}" class="active nav-link">
@@ -110,7 +110,7 @@
                  
                 </li>
                 <li class="nav-item">
-                  <a href="/add/new/student" class="nav-link">Add Students</a>
+                  <a href="{{route('users.index')}}" class="nav-link">Users</a>
                 </li>
                 <li class="nav-item">
                   <a href="/new/notification" class="nav-link">Create Notification</a>
