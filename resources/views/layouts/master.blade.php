@@ -98,7 +98,7 @@
       <div class="row">
         <div class="col-md-12 w-100 h-100 py-3">
           <div class="row">
-            <div class="col-3 bg-info py-2">
+            <div class="col-3 bg-dark py-2">
               <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
                   <a href="{{route('home')}}" class="active nav-link">
