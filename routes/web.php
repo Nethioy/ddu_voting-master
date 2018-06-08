@@ -18,14 +18,20 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>['web','auth']], function(){
 Route::get('/home',function(){
-	if (Auth::user()->role==0) {
-		return view('home');
-	}
-	else
-	{
+	if (Auth::user()->role==1) {
+
 		$users['users']=\App\User::all();
 		return view('admin.home',$users);
+		//return view('admin.home');
 		
+	}
+	else  if (Auth::user()->role==0)
+	{
+		return view('home');
+	}
+	else if (Auth::user()->role==2)
+	{   $users['users']=\App\User::all();
+		return view('candidate.home');
 	}
 })->name('home');
 
