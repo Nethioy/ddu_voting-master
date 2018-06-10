@@ -8,7 +8,8 @@
                @endif
 
 
-         <h3><b>Advertising News</b></h3>
+
+  <h3><b>Advertising News</b></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -18,6 +19,9 @@
           <a class="btn btn-primary btn-sm" href="#" role="button">View Details >></a>
        </p>
       <br><br>
+
+
+
 
 
        <h3><b>Vote Details</b></h3>

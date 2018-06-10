@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+   
         <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('fonts/fontawesome-webfont.woff2') }}" type="text/css">
@@ -29,7 +30,8 @@
 
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="{{ url('/') }}">
+      <a class="navbar-brand" href="{{ url('/') }}"> 
+      
         <i class="fa d-inline fa-lg fa-cloud"></i>
         <b>{{ config('app.name', 'Laravel') }} </b>
       </a>
