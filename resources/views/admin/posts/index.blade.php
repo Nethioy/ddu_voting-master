@@ -30,9 +30,10 @@
 				<tr class="post{{$value->id}}">
 					<td>{{$no++}}</td>
 					<td>{{$value->title}}</td>
-					<td>{{$value->body}}</td>
+					<td> {{ str_limit($value->body,300)}}</td> 
 					<td>{{$value->created_at}}</td>
 					<td>
+					
                     <a href="{{route('posts.show', $value->id)}}" class="btn btn-info btn-sm" data-id="{{$value->id}}" data-title="{{$value->title}}" data-body="{{$value->body}}">
 							<i class="fa fa-eye"></i>
 						</a>

@@ -6,7 +6,7 @@
       <h2>{{$post->title}}</h2>
       </div>
       <div class="card-body">
-       <p>{{$post->body}} </p>   
+         <p>{{$post->body}} </p>
       </div>
   </div>
 @endsection
